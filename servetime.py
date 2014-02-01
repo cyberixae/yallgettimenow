@@ -43,7 +43,9 @@ class TimePage(webapp.RequestHandler):
       self.response.out.write(strtime);
   
   def _send_json(self, millis):
-      jsontime = json.dumps(millis)
+      time_object = {}
+      time_object['time'] = millis
+      jsontime = json.dumps(time_object)
       self.response.headers['Content-Type'] = 'application/json; charset=utf-8'
       self.response.out.write(jsontime);
   
